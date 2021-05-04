@@ -142,7 +142,7 @@ if ENABLE_SLACK:
 # WARNING: If PUBLIC_REGISTER_ENABLED == False, currently Taiga by default prevents the OAuth
 # buttons to appear for both login and register
 ENABLE_GITHUB_AUTH = os.getenv('ENABLE_GITHUB_AUTH', 'False') == 'True'
-if PUBLIC_REGISTER_ENABLED and ENABLE_GITHUB_AUTH:
+if ENABLE_GITHUB_AUTH:
     INSTALLED_APPS += [
         "taiga_contrib_github_auth"
     ]
@@ -153,7 +153,7 @@ if PUBLIC_REGISTER_ENABLED and ENABLE_GITHUB_AUTH:
 # WARNING: If PUBLIC_REGISTER_ENABLED == False, currently Taiga by default prevents the OAuth
 # buttons to appear for both login and register
 ENABLE_GITLAB_AUTH = os.getenv('ENABLE_GITLAB_AUTH', 'False') == 'True'
-if PUBLIC_REGISTER_ENABLED and ENABLE_GITLAB_AUTH:
+if ENABLE_GITLAB_AUTH:
     INSTALLED_APPS += [
         "taiga_contrib_gitlab_auth"
     ]

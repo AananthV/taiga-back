@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements-contribs.in
 #
-git+https://github.com/taigaio/taiga-contrib-github-auth.git@6.0.0#egg=taiga-contrib-github-auth&subdirectory=back
+git+https://github.com/aananthv/taiga-contrib-github-auth.git@6.0.1#egg=taiga-contrib-github-auth&subdirectory=back
     # via -r requirements-contribs.in
 git+https://github.com/taigaio/taiga-contrib-gitlab-auth.git@6.0.0#egg=taiga-contrib-gitlab-auth-official&subdirectory=back
     # via -r requirements-contribs.in
