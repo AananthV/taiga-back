@@ -23,6 +23,7 @@ from django.contrib.auth.models import AnonymousUser
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Q, OuterRef, Subquery
 from django.utils.translation import ugettext as _
+from django.conf import settings
 
 from taiga.base import exceptions as exc
 from taiga.base.api.utils import get_object_or_404
@@ -52,8 +53,12 @@ def get_filter_expression_can_view_projects(user, project_id=None):
                 Q(public_permissions__contains=["view_project"]))
     else:
         # external users / anonymous
-        return Q(anon_permissions__contains=["view_project"])
-
+        if settings.PUBLIC_REGISTER_ENABLED:
+            return Q(anon_permissions__contains=["view_project"])
+        
+        # Return empty Q object
+        else:
+            return Q(pk__in=[])
 
 #####################################################################
 # Base and Mixins

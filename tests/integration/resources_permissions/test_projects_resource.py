@@ -742,7 +742,7 @@ def test_project_list_with_discover_mode_enabled(client, data):
 
     response = client.get(url)
     projects_data = json.loads(response.content.decode('utf-8'))
-    assert len(projects_data) == 2
+    assert len(projects_data) == 0
     assert response.status_code == 200
 
     client.login(data.registered_user)
